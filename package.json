@@ -11,8 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "turbo": "latest"
+    "turbo": "latest",
+    "express": "latest",
+    "node-fetch": "latest",
+    "node-fetch-retry": "latest",
     "@types/node": "^18.0.6",
-    "node-fetch": "^3.2.6",
+    "@types/node-fetch": "^3.2.12",
+    "@types/node-fetch-retry": "^1.0.0",
   }
 }
