@@ -1,0 +1,19 @@
+{
+  "name": "slots-now",
+  "version": "0.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd casino-monorepo npm run start""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "turbo": "latest"
+    "@types/node": "^18.0.6",
+    "node-fetch": "^3.2.6",
+    "turbo": "^1.11.3"
+  }
+}
