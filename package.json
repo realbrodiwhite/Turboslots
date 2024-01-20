@@ -12,8 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "turbo": "latest",
-    "express": "latest",
-  },
+    "express": "latest"
+  }
   "devDependencies": {
     "nodemon": "^2.0.14"
   }
