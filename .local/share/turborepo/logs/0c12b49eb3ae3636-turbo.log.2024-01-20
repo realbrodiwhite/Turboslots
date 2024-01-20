@@ -1,0 +1,12 @@
+2024-01-20T23:44:48.027069Z  INFO daemon_server:set_daemon_logger: turborepo_lib::tracing: exit
+2024-01-20T23:44:48.027118Z  INFO daemon_server:set_daemon_logger: turborepo_lib::tracing: close
+2024-01-20T23:44:48.027225Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/0c12b49eb3ae3636") running=true}: turborepo_lib::daemon::endpoint: new
+2024-01-20T23:44:48.027231Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/0c12b49eb3ae3636") running=true}: turborepo_lib::daemon::endpoint: enter
+2024-01-20T23:44:48.027244Z TRACE daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/0c12b49eb3ae3636") running=true}: turborepo_lib::daemon::endpoint: acquiring pidlock
+2024-01-20T23:44:48.027378Z DEBUG daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/0c12b49eb3ae3636") running=true}: turborepo_lib::daemon::endpoint: pidlock acquired at /tmp/turbod/0c12b49eb3ae3636/turbod.pid
+2024-01-20T23:44:48.027398Z DEBUG daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/0c12b49eb3ae3636") running=true}: turborepo_lib::daemon::endpoint: listening on socket at /tmp/turbod/0c12b49eb3ae3636/turbod.sock
+2024-01-20T23:44:48.047868Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/0c12b49eb3ae3636") running=true}: turborepo_lib::daemon::endpoint: exit
+2024-01-20T23:44:48.047898Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/0c12b49eb3ae3636") running=true}: turborepo_lib::daemon::endpoint: close time.busy=20.6ms time.idle=37.9µs
+2024-01-20T23:44:48.047933Z TRACE daemon_server: turborepo_lib::daemon::server: acquired connection stream for socket
+2024-01-20T23:44:48.130716Z  INFO daemon_server: turborepo_lib::commands::daemon: exit
+2024-01-20T23:44:48.130903Z  INFO daemon_server: turborepo_lib::commands::daemon: close
