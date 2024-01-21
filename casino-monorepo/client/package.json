@@ -3,7 +3,6 @@
 "version": "0.1.0",
 "private": true,
 "dependencies": {
-  "turbo": "^1.11.3",
   "uuid": "^9.0.0",
   "@fortawesome/fontawesome-svg-core": "^6.3.0",
   "@fortawesome/free-solid-svg-icons": "^6.3.0",
@@ -28,7 +27,7 @@
 },
 "devDependencies": {
   "nodemon": "^2.0.7",
-  "turbo": "^1.11.3"
+  "turbo": "*"
   },
 "scripts": {
   "start": "react-scripts start",
