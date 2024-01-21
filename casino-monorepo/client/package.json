@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    
     "@babel/cli": "*",
     "@babel/core": "*",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",

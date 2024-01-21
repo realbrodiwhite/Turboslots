@@ -4,9 +4,14 @@
   "description": "",
   "main": "cd casino-monorepo index.js",
   "scripts": {
-    "build": "turbo run build",
-    "start": "turbo run start",
-    "test": "turbo run test"
+    "start": "npm run start",
+    "test": "npm run test",
+    "lint": "npm run lint",
+    "prettier": "npm run prettier",
+    "build:server": "cd casino-monorepo/server npm run build",
+    "build:client": "cd casino-monorepo/client npm run build",
+    "build": "npm run build:server && npm run build:client"
+    
   },
   "keywords": [],
   "author": "",
