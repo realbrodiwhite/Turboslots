@@ -15,7 +15,7 @@
     "build": "npm run build:server && npm run build:client"
   },
   "keywords": [],
-  "author": "",
+  "author": "realbrodiwhite",
   "license": "ISC",
   "dependencies": {
     "turbo": "*",
