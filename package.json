@@ -8,10 +8,12 @@
     "test": "npm run test",
     "lint": "npm run lint",
     "prettier": "npm run prettier",
+    "start:server": "cd casino-monorepo && npm run start:server",
+    "start:client": "cd casino-monorepo && npm run start:client",
     "build:server": "cd casino-monorepo/server npm run build",
     "build:client": "cd casino-monorepo/client npm run build",
     "build": "npm run build:server && npm run build:client",
-    "build2": "npm run build:client && npm run build:server"
+    "start": "npm run start:client && npm run start:server"
     
   },
   "keywords": [],
