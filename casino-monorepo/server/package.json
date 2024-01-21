@@ -2,7 +2,7 @@
   "name": "server-slotsnow",
   "version": "0.1.0",
   "description": "",
-  "author": "realbrodiwhite",
+  "author": "",
   "license": "ISC",
   "main": "index.js",
   "scripts": {
@@ -10,13 +10,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "md5": "^2.3.0",
     "socket.io": "^4.6.0",
-    "sqlite3": "^5.1.4",
+    "sqlite3": "^5.1.7",
     "uuid": "^9.0.0"
   }
 }
