@@ -498,3 +498,15 @@
 2024-01-21T01:03:38.245454Z DEBUG turborepo_telemetry: telemetry sender not initialized
 2024-01-21T01:03:38.245457Z DEBUG turborepo_telemetry: telemetry sender not initialized
 2024-01-21T01:03:38.245460Z DEBUG turborepo_lib::cli: Skipping telemetry close - not initialized
+2024-01-21T01:29:41.982830Z  INFO daemon_server:set_daemon_logger: turborepo_lib::tracing: exit
+2024-01-21T01:29:41.982892Z  INFO daemon_server:set_daemon_logger: turborepo_lib::tracing: close
+2024-01-21T01:29:41.982953Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/bca061223e0ee72b") running=true}: turborepo_lib::daemon::endpoint: new
+2024-01-21T01:29:41.982959Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/bca061223e0ee72b") running=true}: turborepo_lib::daemon::endpoint: enter
+2024-01-21T01:29:41.982969Z TRACE daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/bca061223e0ee72b") running=true}: turborepo_lib::daemon::endpoint: acquiring pidlock
+2024-01-21T01:29:41.983215Z DEBUG daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/bca061223e0ee72b") running=true}: turborepo_lib::daemon::endpoint: pidlock acquired at /tmp/turbod/bca061223e0ee72b/turbod.pid
+2024-01-21T01:29:41.983230Z DEBUG daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/bca061223e0ee72b") running=true}: turborepo_lib::daemon::endpoint: listening on socket at /tmp/turbod/bca061223e0ee72b/turbod.sock
+2024-01-21T01:29:41.984053Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/bca061223e0ee72b") running=true}: turborepo_lib::daemon::endpoint: exit
+2024-01-21T01:29:41.984075Z  INFO daemon_server:listen_socket{daemon_root=AbsoluteSystemPath("/tmp/turbod/bca061223e0ee72b") running=true}: turborepo_lib::daemon::endpoint: close time.busy=1.09ms time.idle=29.2µs
+2024-01-21T01:29:41.984102Z TRACE daemon_server: turborepo_lib::daemon::server: acquired connection stream for socket
+2024-01-21T01:29:42.075289Z  INFO daemon_server: turborepo_lib::commands::daemon: exit
+2024-01-21T01:29:42.075336Z  INFO daemon_server: turborepo_lib::commands::daemon: close
