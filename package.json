@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js npm run start"
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "test": "turbo run test"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +14,10 @@
   "dependencies": {
     "turbo": "latest",
     "express": "latest",
-    
   },
   "devDependencies": {
+    "@turborepo/cli": "latest",
     "nodemon": "*"
   },
-  "packagemanger": "npm@8.1.0"
+  "packageManager": "npm@8.1.0"
 }

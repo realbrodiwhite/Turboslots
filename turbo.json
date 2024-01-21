@@ -3,21 +3,21 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "build/**", "public/**"] // Common output directories
+      "outputs": ["dist/**", "build/**", "public/**"]
     },
     "build:client": {
       "dependsOn": ["^build"],
-      "outputs": ["client/build/**"] // The React app's build directory
+      "outputs": ["client/build/**"]
     },
     "build:server": {
-      "outputs": ["server/dist/**"] // The server's build directory
+      "outputs": []
     },
     "test": {
       "dependsOn": ["^build"],
-      "outputs": [] // Tests generally have no outputs
+      "outputs": []
     },
     "lint": {
-      "outputs": [] // Lint generally has no outputs
+      "outputs": []
     }
   }
 }
