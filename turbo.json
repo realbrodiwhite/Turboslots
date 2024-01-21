@@ -12,23 +12,23 @@
           "node_modules/**/*"]
       },
       "start": {
-        "depends on": ["start"],
+        "dependsOn": ["start"],
         "command": ["start"]
       },
       "run": {
         "dependsOn": ["^run"],
         "outputs": ["run/**"],
         "commands": [
-          "npm run build:client","
+          "npm run build:client",
           "npm run start",
           "node index.js"]
       },
-      "run:client"" {
+      "run:client": {
         "dependsOn": ["^run"],
         "outputs": ["run/**"],
         "commands": [
           "cd casino-monorepo/client",
-          "npm run start"]
+          "npm run build"]
       },
       "run:server":  {
         "dependsOn": ["^run"],
@@ -42,7 +42,7 @@
         },
         "build:server": {
           "dependsOn": ["^build"],
-          "outputs": ["server/build/**", "server/public/**"],
+          "outputs": ["server/build/**", "server/public/**"]
         },
         "test": {
           "dependsOn": ["^build"],
@@ -53,5 +53,3 @@
         }
       }
     }
-  }
-  

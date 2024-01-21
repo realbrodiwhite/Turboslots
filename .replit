@@ -9,7 +9,7 @@ channel = "stable-23_05"
 language = "nodejs"
 
 [deployment]
-run = ["sh", "-c", "npm start"]
+run = ["sh", "-c", "npm start:casino-monorepo"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
-build = ["sh", "-c", "npm run build:client"]
+build = ["sh", "-c", "npm run build:casino-monorepo"]
