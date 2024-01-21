@@ -18,8 +18,9 @@
   "author": "realbrodiwhite",
   "license": "ISC",
   "dependencies": {
-    "turbo": "*",
-    "express": "*"
+    "turbo": "1.11.3",
+    "express": "*",
+    "socket.io": "*"
   },
   "devDependencies": {
     "turborepo/cli":"*",
