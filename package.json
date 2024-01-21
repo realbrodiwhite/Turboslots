@@ -1,6 +1,6 @@
 {
-  "name": "slots-now",
-  "version": "0.2.0",
+  "name": "slotsnow",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "turbo": "latest",
-    "express": "latest"
+    "express": "latest",
+    
   },
   "devDependencies": {
     "nodemon": "*"
