@@ -6,9 +6,9 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:server": "node index.js"
+    "test": "echo \"Error: no test specified\"",
+    "lint": "eslint 'src/**/*.js'", // Replace with your actual lint command
+    "prettier": "prettier --write 'src/**/*'", // Replace with your actual prettier command
   },
   "keywords": [],
   "dependencies": {
