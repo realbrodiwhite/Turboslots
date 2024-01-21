@@ -4,16 +4,15 @@
   "description": "",
   "main": "cd casino-monorepo index.js",
   "scripts": {
-    "start": "npm run start",
     "test": "npm run test",
     "lint": "npm run lint",
     "prettier": "npm run prettier",
     "start:server": "cd casino-monorepo && npm run start:server",
     "start:client": "cd casino-monorepo && npm run start:client",
+    "start": "npm run start:client && npm run start:server"
     "build:server": "cd casino-monorepo/server npm run build",
     "build:client": "cd casino-monorepo/client npm run build",
-    "build": "npm run build:server && npm run build:client",
-    "start": "npm run start:client && npm run start:server"
+    "build": "npm run build:server && npm run build:client"
     
   },
   "keywords": [],
