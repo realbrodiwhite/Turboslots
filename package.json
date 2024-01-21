@@ -13,10 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "turbo": "latest",
-    "express": "latest",
+    "express": "latest"
   },
   "devDependencies": {
-    "@turborepo/cli": "latest",
+    "@turborepo/cli": "*",
     "nodemon": "*"
   },
   "packageManager": "npm@8.1.0"
