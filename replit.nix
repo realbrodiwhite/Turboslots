@@ -4,5 +4,6 @@
     pkgs.express
     pkgs.nodemon
     pkgs.turborepo-cli
+    pkgs.socket
   ];
 }
