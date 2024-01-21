@@ -24,9 +24,10 @@
     "socket.io": "*"
   },
   "devDependencies": {
-    "turbo-cli":"*",
     "nodemon": "^2.0.4",
     "jest": "^26.6.3",
+    "prettier": "^2.3.2",
+    "eslint": "^7.32.0",
   },
   "packageManager": "npm@8.1.0"
 }
