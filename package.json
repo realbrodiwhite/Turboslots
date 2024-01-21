@@ -18,11 +18,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "turbo": "latest",
-    "express": "latest"
+    "turbo": "*",
+    "express": "*"
   },
   "devDependencies": {
-    "@turborepo/cli": "*",
+    "turborepo/cli":"*",
     "nodemon": "*"
   },
   "packageManager": "npm@8.1.0"
