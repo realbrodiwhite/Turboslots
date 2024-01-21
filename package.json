@@ -12,8 +12,7 @@
     "start": "npm run start:client && npm run start:server",
     "build:server": "npm run build:server",
     "build:client": "npm run build:client",
-    "build": "npm run build:server && npm run build:client"
-    
+    "buildboth": "npm run build:server && npm run build:client"
   },
   "keywords": [],
   "author": "",
