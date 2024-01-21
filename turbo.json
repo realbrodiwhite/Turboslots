@@ -1,27 +1,39 @@
   {
     "$schema": "https://turborepo.org/schema.json",
     "pipeline": {
+      "cache": {
+        "type": "filesystem",
+        "location": "node_modules/.cache/turborepo",
+        "folder": ".turbo",
+        "outputs": ["**/*.cache.json"],
+        "caching": [
+          "node_modules",
+          "node_modules/**",
+          "node_modules/**/*"]
+      },
+      "start": {
+        "depends on": ["start"],
+        "command": ["start"]
+      },
       "run": {
         "dependsOn": ["^run"],
         "outputs": ["run/**"],
         "commands": [
           "npm run build:client","
           "npm run start",
-          "node index.js"
-        ]
+          "node index.js"]
       },
       "run:client"" {
         "dependsOn": ["^run"],
         "outputs": ["run/**"],
-        "command": [
+        "commands": [
           "cd casino-monorepo/client",
-          "npm run start  "
-        ]
+          "npm run start"]
       },
       "run:server":  {
         "dependsOn": ["^run"],
         "outputs": ["run/**"],
-        "command": ["cd casino-monorepo/server", "npm run start"]
+        "commands": ["cd casino-monorepo/server", "npm run start"]
       },
       "build:client": {
           "dependsOn": ["^build"],
