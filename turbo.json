@@ -10,7 +10,7 @@
       "outputs": ["client/build/**"]
     },
     "build:server": {
-      "outputs": []
+      "outputs": ["client/build/**""]
     },
     "test": {
       "dependsOn": ["^build"],
