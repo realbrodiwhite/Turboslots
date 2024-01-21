@@ -1,27 +1,45 @@
-{
-  "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
-    "run": {
-      "dependsOn": ["^run"]
+  {
+    "$schema": "https://turborepo.org/schema.json",
+    "pipeline": {
+      "run": {
+        "dependsOn": ["^run"],
+        "outputs": ["run/**"],
+        "commands": [
+          "npm run build:client","
+          "npm run start",
+          "node index.js"
+        ]
       },
-      "build": {
-        "dependsOn": ["^build"],
-        "outputs": ["dist/**", "build/**", "public/**"]
+      "run:client"" {
+        "dependsOn": ["^run"],
+        "outputs": ["run/**"],
+        "command": [
+          "cd casino-monorepo/client",
+          "npm run start  "
+        ]
+      },
+      "run:server":  {
+        "dependsOn": ["^run"],
+        "outputs": ["run/**"],
+        "command": ["cd casino-monorepo/server", "npm run start"]
       },
       "build:client": {
-        "dependsOn": ["^build"],
-        "outputs": ["client/build/**"]
-      },
-      "build:server": {
-        "outputs": ["client/build/**"]
-      },
-      "test": {
-        "dependsOn": ["^build"],
-        "outputs": []
-      },
-      "lint": {
-        "outputs": []
+          "dependsOn": ["^build"],
+          "outputs": ["dist/**", "build/**", "public/**"],
+          "command": ["cd casino-monorepo/client && npm run build"]
+        },
+        "build:server": {
+          "dependsOn": ["^build"],
+          "outputs": ["server/build/**", "server/public/**"],
+        },
+        "test": {
+          "dependsOn": ["^build"],
+          "outputs": []
+        },
+        "lint": {
+          "outputs": []
+        }
       }
     }
   }
-}
+  

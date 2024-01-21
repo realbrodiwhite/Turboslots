@@ -48,6 +48,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "rules": [
+      "react-app/no-unsafe",
+      "react-app/no-unused-css-rules",
+      "react-app/no-unused-jsx-rules",
+      "react-app/no-unused-react-props",
     ]
   },
   "browserslist": {

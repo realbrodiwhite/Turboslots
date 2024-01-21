@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "lint": "npm run lint",
-    "prettier": "npm run prettier",
-    "start": "npm run start:server && npm run start:client",
+    "pretty": "npm run lint && npm run prettier",
+    "start": "npm run start:client && npm run start:server",
     "start:server": "cd casino-monorepo/server && npm run start",
     "start:client": "cd casino-monorepo/client && npm run start",
     "build:client": "cd casino-monorepo/client && npm run build",
@@ -26,5 +25,5 @@
     "prettier": "^2.3.2",
     "eslint": "*"
   },
-  "packageManager": "npm@8.1.0"
+  "packageManager": "^npm@10.3.0"
 }
