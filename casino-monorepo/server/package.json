@@ -1,0 +1,22 @@
+{
+  "name": "sloticon-server",
+  "version": "1.0.0",
+  "description": "",
+  "author": "realbrodiwhite",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "md5": "^2.3.0",
+    "socket.io": "^4.6.0",
+    "sqlite3": "^5.1.4",
+    "uuid": "^9.0.0"
+  }
+}
