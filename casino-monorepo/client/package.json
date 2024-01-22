@@ -1,6 +1,6 @@
 {
 "name": "client",
-"version": "0.1.0",
+"version": "0.1.2.",
 "private": "true",
 "dependencies": {
   "uuid": "*",
@@ -44,6 +44,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+ "keywords": "client, frontend, casino, slots",
+  "author": "realbrodiwhite, dependabot, ktsalik"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -53,7 +56,7 @@
       "react-app/no-unsafe",
       "react-app/no-unused-css-rules",
       "react-app/no-unused-jsx-rules",
-      "react-app/no-unused-react-props",
+      "react-app/no-unused-react-props"
     ]
   },
   "browserslist": {

@@ -1,4 +1,4 @@
-entrypoint = "index.js"
+entrypoint = "casino-monorepo/server/index.js"
 modules = ["nodejs-20:v8-20230920-bd784b9"]
 hidden = [".config", "package-lock.json"]
 
@@ -9,7 +9,6 @@ channel = "stable-23_05"
 language = "nodejs"
 
 [deployment]
-run = ["sh", "-c", "npm start:casino-monorepo"]
+run = ["sh", "-c", "turbo run start"]
 deploymentTarget = "cloudrun"
 ignorePorts = false
-build = ["sh", "-c", "npm run build:casino-monorepo"]

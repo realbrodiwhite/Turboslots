@@ -13,7 +13,8 @@
       },
       "start": {
         "dependsOn": ["start"],
-        "command": ["start"]
+        "output": ["start"]
+        "command": ["npm run start"]
       },
       "run": {
         "dependsOn": ["^run"],

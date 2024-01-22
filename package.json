@@ -1,6 +1,6 @@
 {
   "name": "slotsnow",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "start:client": "npn run start",
     "build": "npm run build:client"
   },
-  "keywords": [],
-  "author": "realbrodiwhite",
+  "keywords": "slots now, gambling, casino, slots, money",
+  "author": "realbrodiwhite, dependabot, ktsalik",
   "license": "ISC",
   "dependencies": {
     "uuid": "^9.0.0"
