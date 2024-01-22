@@ -1,18 +1,20 @@
-const sqlite3 = require('sqlite3').verbose();
-const md5 = require('md5');
-const { 
-  v1: uuidv1,
-  v4: uuidv4,
-} = require('uuid');
-const Server = require('./server');
-const rockClimberData = require('./games-data/rock-climber');
-const egyptianTreasuresData = require('./games-data/egyptian-treasures');
+const sqlite3 = require("sqlite3").verbose();
+const md5 = require("md5");
+const { v1: uuidv1, v4: uuidv4 } = require("uuid");
+const Server = require("./server");
+const rockClimberData = require("./games-data/rock-climber");
+const egyptianTreasuresData = require("./games-data/egyptian-treasures");
+const rapStarData = require("./games-data/rapStar");
+const slvAllStarSlotsData = require("./games-data/slv-all-star-slots");
+const bayAreaLegendsData = require("./games-data/bay-area-legends");
+const biaaatchData = require("./games-data/biaaatch");
 
-let db = new sqlite3.Database('./database.db', (err) => {
+
+let db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
     console.error(err.message);
   } else {
-    console.log('Connected to the database.');
+    console.log("Connected to the database.");
 
     const server = new Server();
     const io = server.start();
@@ -21,23 +23,23 @@ let db = new sqlite3.Database('./database.db', (err) => {
   }
 });
 
-process.on('exit', function() {
+process.on("exit", function () {
   db.close();
 });
 
 function initIo(io) {
-  io.on('connection', (socket) => {
-    socket.on('login', async (data) => {
+  io.on("connection", (socket) => {
+    socket.on("login", async (data) => {
       if (data.key === null) {
         // a new user is trying to login
         const key = md5(uuidv1());
-        const username = 'Guest';
-        const balance = 10000.00;
+        const username = "Guest";
+        const balance = 10000.0;
         try {
           await createNewUser(username, balance, key);
 
-          socket.emit('login', {
-            status: 'logged-in',
+          socket.emit("login", {
+            status: "logged-in",
             key,
             username,
             balance,
@@ -50,8 +52,8 @@ function initIo(io) {
         try {
           const user = await getUser(data.key);
 
-          socket.emit('login', {
-            status: 'logged-in',
+          socket.emit("login", {
+            status: "logged-in",
             key: data.key,
             username: user.username,
             balance: user.balance,
@@ -62,22 +64,22 @@ function initIo(io) {
       }
     });
 
-    socket.on('balance', async (data) => {
+    socket.on("balance", async (data) => {
       try {
         const account = await getUser(data.key);
 
-        socket.emit('balance', account.balance);
+        socket.emit("balance", account.balance);
       } catch (err) {
         console.log(err);
       }
     });
 
-    socket.on('gamestate', async (data) => {
+    socket.on("gamestate", async (data) => {
       try {
         const account = await getUser(data.key);
         const gamestate = await getOrCreateGamestate(account.id, data.gameId);
 
-        socket.emit('gamestate', {
+        socket.emit("gamestate", {
           balance: account.balance,
           bet: gamestate.bet,
           coinValue: gamestate.coin_value,
@@ -88,24 +90,32 @@ function initIo(io) {
       }
     });
 
-    socket.on('bet', async (data) => {
+    socket.on("bet", async (data) => {
       try {
         const account = await getUser(data.key);
-        const betAmount = Math.round((data.bet * 10 * data.coinValue) * 100) / 100;
+        const betAmount =
+          Math.round(data.bet * 10 * data.coinValue * 100) / 100;
         if (account.balance >= betAmount) {
           const betResult = generateBetResult(data.gameId, betAmount);
-          
+
           let winAmount = 0;
           betResult.lines.forEach((line) => {
             winAmount += line.amount;
           });
 
-          const newBalance = (Math.round((account.balance - betAmount + winAmount) * 100) / 100);
+          const newBalance =
+            Math.round((account.balance - betAmount + winAmount) * 100) / 100;
 
           await updateBalance(account.id, newBalance);
-          await updateGamestate(account.id, data.gameId, data.bet, data.coinValue, JSON.stringify(betResult.position));
+          await updateGamestate(
+            account.id,
+            data.gameId,
+            data.bet,
+            data.coinValue,
+            JSON.stringify(betResult.position)
+          );
 
-          socket.emit('bet', {
+          socket.emit("bet", {
             balance: newBalance,
             reels: betResult.position,
             isWin: betResult.lines.length > 0,
@@ -125,21 +135,33 @@ function generateRandomReelsPosition(gameId) {
 
   switch (gameId) {
     case 'rock-climber':
-      reelsCount = rockClimberData.reelsCount;
-      reelPositions = rockClimberData.reelPositions;
-      symbolsCount = rockClimberData.symbolsCount;
+      linesPositions = rockClimberData.linesPositions;
+      symbolsMultipliers = rockClimberData.symbolsMultipliers;
       break;
     case 'egyptian-treasures':
-      reelsCount = egyptianTreasuresData.reelsCount;
-      reelPositions = egyptianTreasuresData.reelPositions;
-      symbolsCount = egyptianTreasuresData.symbolsCount;
+      linesPositions = egyptianTreasuresData.linesPositions;
+      symbolsMultipliers = egyptianTreasuresData.symbolsMultipliers;
+      break;
+    case 'rap-star':
+      linesPositions = rapStarData.linesPositions;
+      symbolsMultipliers = rapStarData.symbolsMultipliers;
+      break;
+    case 'slv-all-star-slots':
+      linesPositions = slvAllStarSlotsData.linesPositions;
+      symbolsMultipliers = slvAllStarSlotsData.symbolsMultipliers;
+      break;
+    case 'biaaatch':
+      linesPositions = biaaatchData.linesPositions;
+      symbolsMultipliers = biaaatchData.symbolsMultipliers;
       break;
   }
 
   for (let i = 0; i < reelsCount; i++) {
-    position.push(Array.from(Array(reelPositions + 1)).map(() => {
-      return parseInt(Math.random() * symbolsCount) + 1;
-    }));
+    position.push(
+      Array.from(Array(reelPositions + 1)).map(() => {
+        return parseInt(Math.random() * symbolsCount) + 1;
+      })
+    );
   }
 
   return position;
@@ -156,6 +178,18 @@ function generateBetResult(gameId, betAmount) {
     case 'egyptian-treasures':
       position = generateRandomReelsPosition(gameId);
       break;
+    case 'rap-star':
+      position = generateRandomReelsPosition(gameId);
+      break;
+    case 'slv-all-star-slots':
+      position = generateRandomReelsPosition(gameId);
+      break;
+    case 'bay-area-legends':
+      position = generateRandomReelsPosition(gameId);
+      break;
+    case 'biaaatch':
+      position = generateRandomReelsPosition(gameId);
+      break;t
   }
 
   lines = processReelsPosition(gameId, betAmount, position);
@@ -171,11 +205,11 @@ function processReelsPosition(gameId, betAmount, position) {
   let linesPositions, symbolsMultipliers;
 
   switch (gameId) {
-    case 'rock-climber':
+    case "rock-climber":
       linesPositions = rockClimberData.linesPositions;
       symbolsMultipliers = rockClimberData.symbolsMultipliers;
       break;
-    case 'egyptian-treasures':
+    case "egyptian-treasures":
       linesPositions = egyptianTreasuresData.linesPositions;
       symbolsMultipliers = egyptianTreasuresData.symbolsMultipliers;
       break;
@@ -207,7 +241,13 @@ function processReelsPosition(gameId, betAmount, position) {
         symbol: identicalSymbol,
         count: identicalSymbolsCount,
         map: linePosition,
-        amount: Math.round(betAmount * symbolsMultipliers[identicalSymbol][identicalSymbolsCount - 3].multiplier * 100) / 100,
+        amount:
+          Math.round(
+            betAmount *
+              symbolsMultipliers[identicalSymbol][identicalSymbolsCount - 3]
+                .multiplier *
+              100
+          ) / 100,
       });
     }
   });
@@ -223,13 +263,17 @@ function createNewUser(username, balance, key) {
     rejectFn = reject;
   });
 
-  db.run(`INSERT INTO accounts (username, balance, key) VALUES (?, ?, ?)`, [username, balance, key], function(err) {
-    if (err) {
-      rejectFn(err.message);
-    } else {
-      resolveFn(this.lastID);
+  db.run(
+    `INSERT INTO accounts (username, balance, key) VALUES (?, ?, ?)`,
+    [username, balance, key],
+    function (err) {
+      if (err) {
+        rejectFn(err.message);
+      } else {
+        resolveFn(this.lastID);
+      }
     }
-  });
+  );
 
   return creationPromise;
 }
@@ -242,20 +286,24 @@ function getUser(key) {
     rejectFn = reject;
   });
 
-  db.all(`SELECT * FROM accounts WHERE key = ?`, [key], function(err, rows) {
+  db.all(`SELECT * FROM accounts WHERE key = ?`, [key], function (err, rows) {
     if (err) {
       rejectFn(err.message);
     } else {
       if (rows.length === 1) {
-        db.run(`UPDATE accounts SET last_login = ? WHERE id = ?`, [(new Date()).getTime(), rows[0].id], function(err) {
-          if (err) {
-            rejectFn(err.message);
-          } else {
-            resolveFn(rows[0]);
+        db.run(
+          `UPDATE accounts SET last_login = ? WHERE id = ?`,
+          [new Date().getTime(), rows[0].id],
+          function (err) {
+            if (err) {
+              rejectFn(err.message);
+            } else {
+              resolveFn(rows[0]);
+            }
           }
-        });
+        );
       } else {
-        rejectFn('Invalid key. Cannot get user.');
+        rejectFn("Invalid key. Cannot get user.");
       }
     }
   });
@@ -271,39 +319,41 @@ function getOrCreateGamestate(userId, gameId) {
     rejectFn = reject;
   });
 
-  db.all(`SELECT * FROM gamestates WHERE user_id = ? AND game_id = ?`, [userId, gameId], async function(err, rows) {
-    if (err) {
-      rejectFn(err.message);
-    } else {
-      if (rows.length === 1) {
-        // retrieve gamestate
-        resolveFn(rows[0]);
+  db.all(
+    `SELECT * FROM gamestates WHERE user_id = ? AND game_id = ?`,
+    [userId, gameId],
+    async function (err, rows) {
+      if (err) {
+        rejectFn(err.message);
       } else {
-        // create new gamestate
-        const bet = 10;
-        const coinValue = 0.10;
-        const reels = JSON.stringify(generateRandomReelsPosition(gameId));
-        
-        const newGamestate = await new Promise((resolve) => {
-          db.run(`INSERT INTO gamestates (user_id, game_id, reels, bet, coin_value) VALUES (?, ?, ?, ?, ?)`, [
-            userId,
-            gameId,
-            reels,
-            bet,
-            coinValue,
-          ], function(err) {
-            if (err) {
-              rejectFn(err.message);
-            } else {
-              resolve({ reels, bet, coin_value: coinValue });
-            }
-          });
-        });
+        if (rows.length === 1) {
+          // retrieve gamestate
+          resolveFn(rows[0]);
+        } else {
+          // create new gamestate
+          const bet = 10;
+          const coinValue = 0.1;
+          const reels = JSON.stringify(generateRandomReelsPosition(gameId));
 
-        resolveFn(newGamestate);
+          const newGamestate = await new Promise((resolve) => {
+            db.run(
+              `INSERT INTO gamestates (user_id, game_id, reels, bet, coin_value) VALUES (?, ?, ?, ?, ?)`,
+              [userId, gameId, reels, bet, coinValue],
+              function (err) {
+                if (err) {
+                  rejectFn(err.message);
+                } else {
+                  resolve({ reels, bet, coin_value: coinValue });
+                }
+              }
+            );
+          });
+
+          resolveFn(newGamestate);
+        }
       }
     }
-  });
+  );
 
   return getGamestatePromise;
 }
@@ -316,13 +366,17 @@ function updateBalance(userId, value) {
     rejectFn = reject;
   });
 
-  db.run(`UPDATE accounts SET balance = ? WHERE id = ?`, [value, userId], function(err) {
-    if (err) {
-      rejectFn(err.message);
-    } else {
-      resolveFn();
+  db.run(
+    `UPDATE accounts SET balance = ? WHERE id = ?`,
+    [value, userId],
+    function (err) {
+      if (err) {
+        rejectFn(err.message);
+      } else {
+        resolveFn();
+      }
     }
-  });
+  );
 
   return updateBalancePromise;
 }
@@ -335,19 +389,17 @@ function updateGamestate(userId, gameId, bet, coinValue, reelsPosition) {
     rejectFn = reject;
   });
 
-  db.run(`UPDATE gamestates SET reels = ?, bet = ?, coin_value = ? WHERE user_id = ? AND game_id = ?`, [
-    reelsPosition,
-    bet,
-    coinValue,
-    userId,
-    gameId,
-  ], function(err) {
-    if (err) {
-      rejectFn(err.message);
-    } else {
-      resolveFn();
+  db.run(
+    `UPDATE gamestates SET reels = ?, bet = ?, coin_value = ? WHERE user_id = ? AND game_id = ?`,
+    [reelsPosition, bet, coinValue, userId, gameId],
+    function (err) {
+      if (err) {
+        rejectFn(err.message);
+      } else {
+        resolveFn();
+      }
     }
-  });
+  );
 
   return updateGamestatePromise;
 }
