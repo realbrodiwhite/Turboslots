@@ -4,7 +4,7 @@ const { v1: uuidv1, v4: uuidv4 } = require("uuid");
 const Server = require("./server");
 const rockClimberData = require("./games-data/rock-climber");
 const egyptianTreasuresData = require("./games-data/egyptian-treasures");
-const rapStarData = require("./games-data/rapStar");
+const rapStarData = require("./games-data/rap-star");
 const slvAllStarSlotsData = require("./games-data/slv-all-star-slots");
 const bayAreaLegendsData = require("./games-data/bay-area-legends");
 const biaaatchData = require("./games-data/biaaatch");
@@ -145,6 +145,10 @@ function generateRandomReelsPosition(gameId) {
     case 'rap-star':
       linesPositions = rapStarData.linesPositions;
       symbolsMultipliers = rapStarData.symbolsMultipliers;
+      break;
+    case 'bay-area-legends':
+      linesPositions = bayAreaLegendsData.linesPositions;
+      symbolsMultipliers = bayAreaLegendsData.symbolsMultipliers;
       break;
     case 'slv-all-star-slots':
       linesPositions = slvAllStarSlotsData.linesPositions;
