@@ -6,10 +6,10 @@
   "scripts": {
     "test": "npm run test",
     "prettiest": "npm run lint && npm run prettier",
-    "start": "npm run start:client && npm run start:server",
+    "start:both": "npm run start:server && npm run start:client",
     "start:server": "cd casino-monorepo/server && npm run start",
     "start:client": "cd casino-monorepo/client && npm run start",
-    "build": "cd casino-monorepo/client npm run build:client",
+    "build": "cd casino-monorepo/client && npm run build:client",
     "build:client": "cd casino-monorepo/client && npm run build",
     "linter": "npm run lint"
   },

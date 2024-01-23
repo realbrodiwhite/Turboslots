@@ -11,8 +11,8 @@ language = "nodejs"
 [deployment]
 deploymentTarget = "cloudrun"
 ignorePorts = false
-build = ["sh", "-c", "npm run build:client"]
-run = ["sh", "-c", "npm run start"]
+build = ["sh", "-c", "cd casino-monorepo/client && npm run build:client"]
+run = ["sh", "-c", "npm run start:both"]
 
 [auth]
 pageEnabled = false
