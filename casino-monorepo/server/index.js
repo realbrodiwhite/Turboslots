@@ -216,9 +216,25 @@ function processReelsPosition(gameId, betAmount, position) {
     case "egyptian-treasures":
       linesPositions = egyptianTreasuresData.linesPositions;
       symbolsMultipliers = egyptianTreasuresData.symbolsMultipliers;
+    case "rap-star":
+      linesPositions = rapStarData.linesPositions;
+      symbolsMultipliers = rapStarData.symbolsMultipliers;
       break;
+    case "slv-all-star-slots":
+      linesPositions = slvAllStarSlotsData.linesPositions;
+      symbolsMultipliers = slvAllStarSlotsData.symbolsMultipliers;
+      break;
+    case "bay-area-legends":
+      linesPositions = bayAreaLegendsData.linesPositions;
+      symbolsMultipliers = rockClimberData.symbolsMultipliers;
+      break;
+    case "egyptian-treasures":
+      linesPositions = egyptianTreasuresData.linesPositions;
+      symbolsMultipliers = egyptianTreasuresData.symbolsMultipliers;
+      break;
+      
   }
-
+  
   linesPositions.forEach((linePosition, i) => {
     let symbolsInLine = [];
     for (let j = 0; j < linePosition.length; j++) {

@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "slotsnow-server",
   "version": "0.1.0",
   "description": "the slot server",
   "main": "index.js",

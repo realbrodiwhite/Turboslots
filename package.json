@@ -6,11 +6,11 @@
   "scripts": {
     "test": "npm run test",
     "prettiest": "npm run lint && npm run prettier",
-    "start": "npm run start:client & npm run start:server",
+    "start": "npm run start:client && npm run start:server",
     "start:server": "cd casino-monorepo/server && npm run start",
     "start:client": "cd casino-monorepo/client && npm run start",
-    "build": "cd casino-monorepo/client npm run build",
-    "lint": "eslint .",
+    "build": "cd casino-monorepo/client npm run build:client",
+    "build:client": "cd casino-monorepo/client && npm run build",
     "linter": "npm run lint"
   },
   "keywords": "slots now, gambling, casino, slots, money",
