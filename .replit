@@ -9,6 +9,7 @@ channel = "stable-23_05"
 language = "nodejs"
 
 [deployment]
-run = ["sh", "-c", "turbo run start"]
-deploymentTarget = "cloudrun"
+deploymentTarget = "static"
 ignorePorts = false
+build = ["sh", "-c", "npm run build"]
+publicDir = "casino-monorepo/client/public"
