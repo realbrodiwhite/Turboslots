@@ -1,21 +1,23 @@
 {
-  "name": "slotsnow",
+  "name": "slotsnow-app",
   "version": "0.1.2",
-  "description": "",
+  "description": "Slots",
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "pretty": "npm run lint && npm run prettier",
-    "start": "npm run start:client && npm run start:server",
-    "start:server": "npm run start",
-    "start:client": "npn run start",
-    "build": "npm run build:client"
+    "prettiest": "npm run lint && npm run prettier",
+    "start": "cd npm run start:client & npm run start:server",
+    "start:server": "cd casino-monorepo/server npm run start",
+    "start:client": "cd casino-monorepo/client npm run start",
+    "build": "cd casino-monorepo/client npm run build:client",
+    "linter": "npm run lint"
   },
   "keywords": "slots now, gambling, casino, slots, money",
   "author": "realbrodiwhite, dependabot, ktsalik",
   "license": "ISC",
   "dependencies": {
     "uuid": "^9.0.0"
+    ""
   },
   "devDependencies": {
     "turbo": "*",
