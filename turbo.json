@@ -1,45 +1,24 @@
   {
     "$schema": "https://turborepo.org/schema.json",
     "pipeline": {
-      "cache": {
-        "type": "filesystem",
-        "location": "node_modules/.cache/turborepo",
-        "folder": ".turbo",
-        "outputs": ["**/*.cache.json"],
-        "caching": [
-          "node_modules",
-          "node_modules/**",
-          "node_modules/**/*"]
-      },
       "start": {
-        "dependsOn": ["start"],
-        "output": ["start"],
-        "command": ["node index.js"]
+        "dependsOn": ["start"]
       },
       "run": {
         "dependsOn": ["^run"],
-        "outputs": ["run/**"],
-        "commands": [
-          "npm run build:client",
-          "npm run start",
-          "node index.js"]
+        "outputs": ["run/**"]
       },
       "run:client": {
         "dependsOn": ["^run"],
-        "outputs": ["run/**"],
-        "commands": [
-          "cd casino-monorepo/client",
-          "npm run build"]
+        "outputs": ["run/**"]
       },
       "run:server":  {
         "dependsOn": ["^run"],
-        "outputs": ["run/**"],
-        "commands": ["cd casino-monorepo/server", "npm run start"]
+        "outputs": ["run/**"]
       },
       "build:client": {
           "dependsOn": ["^build"],
-          "outputs": ["dist/**", "build/**", "public/**"],
-          "command": ["cd casino-monorepo/client && npm run build"]
+          "outputs": ["dist/**", "build/**", "public/**"]
         },
         "build:server": {
           "dependsOn": ["^build"],
