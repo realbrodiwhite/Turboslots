@@ -15,6 +15,7 @@
         "origin",
         "upstream",
         "origin/replit",
-        "main"
+        "main",
+        "replit"
     ]
 }
