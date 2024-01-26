@@ -3,5 +3,10 @@
     "editor.fontSize": 13,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.minimap.autohide": true,
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    }
 }
