@@ -8,5 +8,7 @@
     "launch": {
         "configurations": [],
         "compounds": []
-    }
+    },
+    "redhat.telemetry.enabled": true,
+    "git.autofetch": true
 }
