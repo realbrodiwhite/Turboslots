@@ -10,5 +10,11 @@
         "compounds": []
     },
     "redhat.telemetry.enabled": true,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "githubPullRequests.remotes": [
+        "origin",
+        "upstream",
+        "origin/replit",
+        "main"
+    ]
 }
