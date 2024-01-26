@@ -24,6 +24,7 @@
   "author": "realbrodiwhite, dependabot, ktsalik",
   "license": "ISC",
   "dependencies": {
+    "adminjs":"",
     "axios": "^0.27.2",
     "animejs": "^3.2.1",
     "concurrently": "^7.0.0",
