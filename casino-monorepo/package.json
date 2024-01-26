@@ -14,9 +14,22 @@
     "linter": "eslint ."
   },
   "keywords": [
-    "slots now",
-    "realbrodiwhite"
+    "slots",
+    "now",
+    "719",
+    "colorado",
+    "sanluisvalley",
+    "ecommerce",
+    "merch",
+    "credits",
+    "poker",
+    "dice",
+    "sports",
+    "bets",
     "gambling",
+    "realrodiwhite",
+    "social",
+    "prizes",
     "casino",
     "slots",
     "money"
@@ -38,7 +51,6 @@
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.1",
     "sass": "^1.43.0",
-    "uuid": "^9.0.0",
   },
   "devDependencies": {
     "turbo": "*",

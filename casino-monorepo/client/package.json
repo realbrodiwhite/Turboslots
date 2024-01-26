@@ -44,9 +44,17 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
- "keywords": "client, frontend, casino, slots",
-  "author": "realbrodiwhite, dependabot, ktsalik"
-  },
+  "keywords": [
+    "client",
+    "frontend",
+    "casino",
+    "slots"
+  ],
+  "author": [
+    "realbrodiwhite",
+    "dependabot",
+    "ktsalik"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",

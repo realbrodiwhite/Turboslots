@@ -24,30 +24,64 @@ const Header = (props) => {
     });
   }, []);
 
+  const authButtonText = loggedIn ? 'Logout' : 'Login';
+  const handleAuth = () => {
+    if (loggedIn) {
+      // Implement logout functionality
+      
+      // Logout functionality
+      localStorage.removeItem('key');
+      store.dispatch(lobbySlice.actions.setLoggedIn(false));
+      store.dispatch(lobbySlice.actions.setUsername(''));
+      store.dispatch(lobbySlice.actions.updateBalance(0));
+      socket.emit('logout');
+
+      // Show popup with auth options if not logged in
+      const showAuthPopup = () => {
+        // Code to show auth popup with buttons for new user, sign-in, sign-up, forgot password
+      };
+
+      // Show profile or settings page in a popup if logged in
+      const showProfileOrSettings = () => {
+        // Code to show profile or settings page
+      };
+
+      // Check if the user is logged in and show the appropriate popup
+      loggedIn ? showProfileOrSettings() : showAuthPopup();
+
+    } else {
+      // Implement login functionality
+    }
+  };
+
   return (
     <div className="Header">
       <div className="brand">
         <FontAwesomeIcon icon={faCrown} size="2x" className="logo"></FontAwesomeIcon>
-        <span className="name">Sloticon</span>
+        <span className="name">SlotsNow! An Infinity Software Project</span>
       </div>
 
-      <div className={`menu ${!loggedIn ? 'd-none' : ''}`}>
-        <div className="account">
-          <button className="btn-toggle-account-menu">
-            <FontAwesomeIcon icon={faUserCircle} size="2x"></FontAwesomeIcon>
+      <div className="menu">
+        {loggedIn && (
+          <div className="account">
             <span>{username}</span>
-          </button>
-        </div>
+          </div>
+        )}
 
-        <button className="btn-settings">
-          <FontAwesomeIcon icon={faCog} size="2x"></FontAwesomeIcon>
+        <button className={`btn-auth ${loggedIn ? 'logged-in' : ''}`} onClick={handleAuth}>
+          {authButtonText}
         </button>
+
+        {loggedIn && (
+          <FontAwesomeIcon icon={faCog} size="2x" className="icon-settings"></FontAwesomeIcon>
+        )}
       </div>
 
-      <div className={`balance ${!loggedIn ? 'd-none' : ''}`}>
-        <span className="label">Balance</span>
-        <span className="value">€{balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-      </div>
+      {loggedIn && (
+        <div className="balance">
+          <span>€{balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+        </div>
+      )}
     </div>
   );
 }
