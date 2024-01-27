@@ -1,10 +1,8 @@
 // Dynamic import with top-level await (make sure your environment supports top-level await)
 import sqlite3 from 'sqlite3';
-const { verbose } = sqlite3;
-const db = new verbose().Database('./database.db');
 import md5 from 'md5';
 import { v1 as uuidv1, v4 as uuidv4 } from 'uuid';
-import Server from './server';
+import Server from './server.js';
 import rockClimberData from './games-data/rock-climber';
 import egyptianTreasuresData from './games-data/egyptian-treasures';
 import rapStarData from './games-data/rap-star';

@@ -1,6 +1,7 @@
 {
   "name": "slotsnow-server",
   "version": "0.1.0",
+  "type": "module",
   "description": "the slot server",
   "main": "index.js",
   "scripts": {
