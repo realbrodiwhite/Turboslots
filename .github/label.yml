@@ -1,0 +1,44 @@
+# .github/labeler.yml
+
+documentation:
+- '**/*.md'
+
+client:
+- 'client/**/*.js'
+- 'client/**/*.jsx'
+- 'client/**/*.css'
+
+server:
+- 'server/**/*.js'
+- 'server/**/*.ts'
+
+database:
+- '**/*.sql'
+
+tests:
+- '**/*.test.js'
+- '**/*.spec.js'
+
+build:
+- 'Dockerfile'
+- 'docker-compose.yml'
+
+javascript:
+- '**/*.js'
+
+typescript:
+- '**/*.ts'
+
+css:
+- '**/*.css'
+
+html:
+- '**/*.html'
+
+api:
+- 'server/api/**/*.js'
+- 'server/api/**/*.ts'
+
+utils:
+- '**/utils/**/*.js'
+- '**/utils/**/*.ts'
