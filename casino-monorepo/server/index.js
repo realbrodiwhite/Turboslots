@@ -1,13 +1,13 @@
-const sqlite3 = require("sqlite3").verbose();
-const md5 = require("md5");
-const { v1: uuidv1, v4: uuidv4 } = require("uuid");
-const Server = require("./server");
-const rockClimberData = require("./games-data/rock-climber");
-const egyptianTreasuresData = require("./games-data/egyptian-treasures");
-const rapStarData = require("./games-data/rap-star");
-const slvAllStarSlotsData = require("./games-data/slv-all-star-slots");
-const bayAreaLegendsData = require("./games-data/bay-area-legends");
-const biaaatchData = require("./games-data/biaaatch");
+const sqlite3 = import("sqlite3").verbose();
+const md5 = import("md5");
+const { v1: uuidv1, v4: uuidv4 } = import("uuid");
+const Server = import("./server");
+const rockClimberData = import("./games-data/rock-climber");
+const egyptianTreasuresData = import("./games-data/egyptian-treasures");
+const rapStarData = import("./games-data/rap-star");
+const slvAllStarSlotsData = import("./games-data/slv-all-star-slots");
+const bayAreaLegendsData = import("./games-data/bay-area-legends");
+const biaaatchData = import("./games-data/biaaatch");
 
 
 let db = new sqlite3.Database("./database.db", (err) => {

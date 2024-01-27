@@ -21,6 +21,17 @@ const GameList = (props) => {
           </Link>
         </div>
 
+        <div className="game" style={{position: 'relative'}}>
+          <img className="logo" alt="rap star: official mixtape edition slot machine game by realbrodiwhite - logo" src={rapStarLogo} />
+
+          <span>Rap Star: Official Mixtape Edition</span>
+
+          <Link to="play/egyptian-treasures" className="btn-play">
+            Play
+          </Link>
+        </div>
+
+        
         <div className="game">
           <img className="logo" alt="rock climbers slot machine game logo" src={rockClimberLogo} />
           

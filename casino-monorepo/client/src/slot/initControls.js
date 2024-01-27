@@ -11,7 +11,9 @@ function initControls(game) {
   const controls = new PIXI.Container();
   controls.z = 10;
   game.stage.addChild(controls);
-
+  const currencyTexture = PIXI.Texture.from('https://i.postimg.cc/4xYXRLGV/logo192.png');
+  const creditsValueDollarSign = new PIXI.Sprite(currencyTexture);
+  
   const infoText = new PIXI.Text('HOLD SPACE FOR TURBO SPIN', new PIXI.TextStyle({
     fontFamily: 'Archivo Black',
     fontSize: 22,
@@ -46,22 +48,22 @@ function initControls(game) {
   controls.addChild(creditsLabel);
   game.texts.push(creditsLabel);
 
-  const creditsValueEuroSign = new PIXI.Text('€', {
+  const creditsValueDollarSign = new PIXI.Text('$', {
     fontFamily: 'Archivo Black',
     fontSize: 20,
     fill: '#FFFFFF',
   });
-  creditsValueEuroSign.x = creditsLabel.x + creditsLabel.width + 20;
-  creditsValueEuroSign.y = creditsLabel.y;
-  controls.addChild(creditsValueEuroSign);
-  game.texts.push(creditsValueEuroSign);
+  creditsValueDollarSign.x = creditsLabel.x + creditsLabel.width + 10;
+  creditsValueDollarSign.y = creditsLabel.y;
+  controls.addChild(creditsValueDollarSign);
+  game.texts.push(creditsValueDollarSign);
 
   const creditsValue = new PIXI.Text(game.balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }), {
     fontFamily: 'Archivo Black',
     fontSize: 20,
     fill: '#FFFFFF',
   });
-  creditsValue.x = creditsValueEuroSign.x + creditsValueEuroSign.width + 5;
+  creditsValue.x = creditsValueDollarSign.x + creditsValueDollarSign.width + 5;
   controls.addChild(creditsValue);
   game.texts.push(creditsValue);
 
@@ -79,22 +81,22 @@ function initControls(game) {
   controls.addChild(betLabel);
   game.texts.push(betLabel);
 
-  const betValueEuroSign = new PIXI.Text('€', {
+  const betValueDollarSign = new PIXI.Text('$', {
     fontFamily: 'Archivo Black',
     fontSize: 20,
     fill: '#FFFFFF',
   });
-  betValueEuroSign.x = betLabel.x + betLabel.width + 16;
-  betValueEuroSign.y = betLabel.y;
-  controls.addChild(betValueEuroSign);
-  game.texts.push(betValueEuroSign);
+  betValueDollarSign.x = betLabel.x + betLabel.width + 16;
+  betValueDollarSign.y = betLabel.y;
+  controls.addChild(betValueDollarSign);
+  game.texts.push(betValueDollarSign);
 
   const betValue = new PIXI.Text(game.betValueToLocale, {
     fontFamily: 'Archivo Black',
     fontSize: 20,
     fill: '#FFFFFF',
   });
-  betValue.x = betValueEuroSign.x + betValueEuroSign.width + 5;
+  betValue.x = betValueDollarSign.x + betValueDollarSign.width + 5;
   betValue.y = betLabel.y;
   controls.addChild(betValue);
   game.texts.push(betValue);
@@ -134,7 +136,7 @@ function initControls(game) {
         totalWinAmount += line.amount;
       });
 
-      winAmountText.text = '€' + totalWinAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      winAmountText.text = '$' + totalWinAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
       winAmountContainer.x = (1280 / 2) - (winAmountContainer.width / 2);
     } else {

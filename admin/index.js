@@ -1,9 +1,9 @@
-const AdminJS = require("adminjs");
-const AdminJSExpress = require("@adminjs/express");
-const AdminJSSequelize = require("@adminjs/sequelize");
-const express = require("express");
+const AdminJS = import("adminjs");
+const AdminJSExpress = import("@adminjs/express");
+const AdminJSSequelize = import("@adminjs/sequelize");
+const express = import("express");
 const app = express();
-const { Database, Resource } = require("adminjs");
+const { Database, Resource } = import("adminjs");
 // Initialize AdminJS with the options
 const admin = new AdminJS(adminJsOptions);
 

@@ -1,16 +1,16 @@
-const express = require('express');
-const AdminJS = require('adminjs');
-const AdminJSSqlite = require('adminjs-sqlite');
-const AdminJSExpress = require('@adminjs/express');
-const sqlite3 = require("sqlite3").verbose();
+const express = import('express');
+const AdminJS = import('adminjs');
+const AdminJSSqlite = import('adminjs-sqlite');
+const AdminJSExpress = import('@adminjs/express');
+const sqlite3 = import("sqlite3").verbose();
 
 class Server {
   constructor() {
     const port = process.env.PORT || 3001;
     const app = express();
-    const http = require('http');
+    const http = import('http');
     const server = http.createServer(app);
-    const SocketIo = require("socket.io");
+    const SocketIo = import("socket.io");
     const io = new SocketIo.Server(server, {
       cors: {
         origin: "*",
@@ -46,27 +46,20 @@ class Server {
       socket.id,
       
       );
-      socket.on('disconnect', () =>"a user disconnected"),
-        console.log,
-        'a user disconnected',
-        socket.id,
-        socket.handshake.headers['x-forwarded-for']
-      );
-      socket.on('adminDataChanged', (data) =>"),
-        console.log,
-        'admin Data Changed',
-        socket.id,
-        socket.handshake.headers['x-forwarded-for'],
-        data
-        );
-        io.emit('adminDataChanged', data),
-                
+      socket.on('disconnect', () => {
+        console.log('a user disconnected', socket.id, socket.handshake.headers['x-forwarded-for']);
+      });
+
+      socket.on('adminDataChanged', (data) => {
+        console.log('admin Data Changed', socket.id, socket.handshake.headers['x-forwarded-for'], data);
+        io.emit('adminDataChanged', data);
         socket.emit('adminDataChanged', adminJs.data.models);
-    this.app = app;
-    this.server = server;
-    this.io = io;
-    this.port = port;
-  }
+      });
+      this.app = app;
+      this.server = server;
+      this.io = io;
+      this.port = port;
+    }
 
   start() {
     this.server.listen(this.port, () => {
