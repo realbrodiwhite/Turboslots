@@ -1,6 +1,7 @@
 {
   "name": "slotsnow-app",
   "version": "0.1.0",
+  "type": "module",
   "description": "Slots",
   "main": "index.js",
   "scripts": {
@@ -41,7 +42,7 @@
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.1",
     "sass": "^1.43.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
   },
   "devDependencies": {
     "turbo": "*",

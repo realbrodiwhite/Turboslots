@@ -1,6 +1,7 @@
 {
   "name": "slotsnow-app",
   "version": "0.1.0",
+  "type": "module",
   "description": "Slots",
   "main": "index.js",
   "scripts": {

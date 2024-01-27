@@ -1,14 +1,16 @@
-const sqlite3 = import("sqlite3").verbose();
-const md5 = import("md5");
-const { v1: uuidv1, v4: uuidv4 } = import("uuid");
-const Server = import("./server");
-const rockClimberData = import("./games-data/rock-climber");
-const egyptianTreasuresData = import("./games-data/egyptian-treasures");
-const rapStarData = import("./games-data/rap-star");
-const slvAllStarSlotsData = import("./games-data/slv-all-star-slots");
-const bayAreaLegendsData = import("./games-data/bay-area-legends");
-const biaaatchData = import("./games-data/biaaatch");
-
+// Dynamic import with top-level await (make sure your environment supports top-level await)
+import sqlite3 from 'sqlite3';
+const { verbose } = sqlite3;
+const db = new verbose().Database('./database.db');
+import md5 from 'md5';
+import { v1 as uuidv1, v4 as uuidv4 } from 'uuid';
+import Server from './server';
+import rockClimberData from './games-data/rock-climber';
+import egyptianTreasuresData from './games-data/egyptian-treasures';
+import rapStarData from './games-data/rap-star';
+import slvAllStarSlotsData from './games-data/slv-all-star-slots';
+import bayAreaLegendsData from './games-data/bay-area-legends';
+import biaaatchData from './games-data/biaaatch';
 
 let db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
