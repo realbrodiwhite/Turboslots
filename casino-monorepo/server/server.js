@@ -59,7 +59,7 @@ const sqlite3 = verbose();
       this.io = io;
       this.port = port;
     }
-  }
+  },
 
   start() {
     this.server.listen(this.port, () => {
