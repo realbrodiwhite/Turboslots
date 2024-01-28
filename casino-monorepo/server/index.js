@@ -1,14 +1,20 @@
-// Dynamic import with top-level await (make sure your environment supports top-level await)
-import sqlite3 from 'sqlite3';
+import pkg from '@replit/database';
+const { Client } = require('pg');
+import sequelize from './sequelize';
+import express from 'express';
+import AdminJS from 'adminjs';
+import AdminJSExpress from '@adminjs/express';
+import AdminJSSequelize from '@adminjs/sequelize';
+import { Sequelize } from 'sequelize';
 import md5 from 'md5';
 import { v1 as uuidv1, v4 as uuidv4 } from 'uuid';
 import Server from './server.js';
-import rockClimberData from './games-data/rock-climber';
-import egyptianTreasuresData from './games-data/egyptian-treasures';
-import rapStarData from './games-data/rap-star';
-import slvAllStarSlotsData from './games-data/slv-all-star-slots';
-import bayAreaLegendsData from './games-data/bay-area-legends';
-import biaaatchData from './games-data/biaaatch';
+import rockClimberData from './games-data/rock-climber.js';
+import egyptianTreasuresData from './games-data/egyptian-treasures.js';
+import rapStarData from './games-data/rap-star.js';
+import slvAllStarSlotsData from './games-data/slv-all-star-slots.js';
+import bayAreaLegendsData from './games-data/bay-area-legends.js';
+import biaaatchData from './games-data/biaaatch.js';
 
 let db = new sqlite3.Database("./database.db", (err) => {
   if (err) {
@@ -18,6 +24,7 @@ let db = new sqlite3.Database("./database.db", (err) => {
 
     const server = new Server();
     const io = server.start();
+    const Database();
 
     initIo(io);
   }
