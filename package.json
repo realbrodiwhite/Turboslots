@@ -52,5 +52,5 @@
     "prettier": "^2.3.2",
     "eslint": "*"
   },
-  "packageManager": "npm@10.3.0"
+  "packageManager": "npm@10.4.0"
 }
