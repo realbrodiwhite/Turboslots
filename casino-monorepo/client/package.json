@@ -10,7 +10,7 @@
   "@reduxjs/toolkit": "^2.0.0",
   "@testing-library/jest-dom": "^6.0.0",
   "@testing-library/react": "^14.0.0",
-  "@testing-library/user-event": "^13.5.0",
+  "@testing-library/user-event": "^14.0.0",
   "axios": "^1.0.0",
   "animejs": "^3.2.1",
   "@rollup/plugin-terser": "*",
