@@ -33,7 +33,7 @@
   "devDependencies": {
     "animejs": "^3.2.1",
     "@rollup/plugin-terser": "*",
-    "@jridgewell/sourcemap-codec": "0.7.0",
+    "@jridgewell/sourcemap-codec": "1.4.15",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
