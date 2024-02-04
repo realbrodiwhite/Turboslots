@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "description": "the slot server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pnpm start"
+  },
+  "keywords": "server, casino, slots",
+  "author": "realbrodiwhite, dependabot, ktsalik",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "md5": "^2.3.0",
+    "socket.io": "^4.6.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "turbo": "1.12.2"
+  },
+  "repository": "https://github.com/realbrodiwhite/Turboslots",
+  "bugs": "https://github.com/realbrodiwhite/Turboslots/issues",
+  "homepage": "https://github.com/realbrodiwhite/Turboslots#readme",
+  "packageManager": "pnpm@8.15.1"
+}

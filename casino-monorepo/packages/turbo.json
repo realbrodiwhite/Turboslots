@@ -1,0 +1,45 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build#server": {
+      "dependsOn": ["^build#server"],
+      "outputs": ["casino-monorepo/server/dist/**"]
+    },
+    "build#client": {
+      "dependsOn": ["^build#client"],
+      "outputs": ["casino-monorepo/client/build/**"]
+    },
+    "dev#server": {
+      "dependsOn": ["^dev#server"],
+      "outputs": ["casino-monorepo/server/dist/**"]
+    },
+    "dev#client": {
+      "dependsOn": ["^dev#client"],
+      "outputs": ["casino-monorepo/client/build/**"]
+    },
+    "start#server": {
+      "dependsOn": ["^start#server"],
+      "outputs": ["casino-monorepo/server/dist/**"]
+    },
+    "start#client": {
+      "dependsOn": ["^start#client"],
+      "outputs": ["casino-monorepo/client/build/**"]
+    },
+    "lint#server": {
+      "dependsOn": ["^lint#server"],
+      "outputs": ["casino-monorepo/server/dist/**"]
+    },
+    "lint#client": {
+      "dependsOn": ["^lint#client"],
+      "outputs": ["casino-monorepo/client/build/**"]
+    },
+    "test#server": {
+      "dependsOn": ["^test#server"],
+      "outputs": ["casino-monorepo/server/dist/**"]
+    },
+    "test#client": {
+      "dependsOn": ["^test#client"],
+      "outputs": ["casino-monorepo/client/build/**"]
+    }
+  }
+}
