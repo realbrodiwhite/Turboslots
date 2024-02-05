@@ -22,7 +22,7 @@
     "turbo": "1.12.2",
     "nodemon": "^2.0.4",
     "jest": "^26.6.3",
-    "prettier": "^2.3.2",
+    "prettier": "^3.0.0",
     "eslint": "*"
   },
   "packageManager": "pnpm@8.15.1"
