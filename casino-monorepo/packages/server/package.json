@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.3",
-    "turbo": "1.12.2"
+    "turbo": "1.13.0"
   },
   "repository": "https://github.com/realbrodiwhite/Turboslots",
   "bugs": "https://github.com/realbrodiwhite/Turboslots/issues",
